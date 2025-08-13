@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Development Guidelines - Dev Team</title>
     <link rel="stylesheet" href="assets/css/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="assets/js/marked.js"></script> <!-- Local marked.js -->
 </head>
 <body>
 
@@ -16,7 +16,6 @@
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
             <li><a href="guidelines.html">Guidelines</a></li>
         </ul>
     </nav>
@@ -25,7 +24,7 @@
 <main>
     <section class="guidelines">
         <h1>Development Guidelines</h1>
-        <div id="markdown-content"></div> <!-- Placeholder for rendered markdown files-->
+        <div id="markdown-content"></div> <!-- Placeholder for rendered markdown -->
     </section>
 </main>
 
@@ -33,18 +32,18 @@
     <p>&copy; 2025 Dev Team. All Rights Reserved.</p>
 </footer>
 
-<script src="assets/js/script.js"></script>
 <script>
-// Fetch the markdown file and render it using marked.js
-fetch('guidelines.md')
+// Fetch the markdown file and render it using local marked.js
+fetch('guidelines.md') // Ensure the correct relative path here
     .then(response => response.text())
     .then(data => {
-        // Convert markdown to HTML
+        // Convert markdown to HTML using local marked.js
         const htmlContent = marked(data);
         // Insert the HTML into the div
         document.getElementById('markdown-content').innerHTML = htmlContent;
     })
     .catch(error => console.error('Error loading markdown file:', error));
 </script>
+
 </body>
 </html>

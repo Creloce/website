@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Development Guidelines - Dev Team</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
 
@@ -24,12 +25,7 @@
 <main>
     <section class="guidelines">
         <h1>Development Guidelines</h1>
-        <ul>
-            <li><strong>Code Style:</strong> Follow industry-standard coding practices and naming conventions.</li>
-            <li><strong>Version Control:</strong> Always use Git for version control. Push changes to feature branches and submit pull requests for code reviews.</li>
-            <li><strong>Documentation:</strong> Document your code well. Use JSDoc or equivalent standards to ensure clarity.</li>
-            <li><strong>Testing:</strong> Write tests for new code. Run tests locally before pushing changes.</li>
-        </ul>
+        <div id="markdown-content"></div> <!-- Placeholder for rendered markdown -->
     </section>
 </main>
 
@@ -38,5 +34,17 @@
 </footer>
 
 <script src="assets/js/script.js"></script>
+<script>
+// Fetch the markdown file and render it using marked.js
+fetch('guidelines.md')
+    .then(response => response.text())
+    .then(data => {
+        // Convert markdown to HTML
+        const htmlContent = marked(data);
+        // Insert the HTML into the div
+        document.getElementById('markdown-content').innerHTML = htmlContent;
+    })
+    .catch(error => console.error('Error loading markdown file:', error));
+</script>
 </body>
 </html>

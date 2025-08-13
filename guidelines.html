@@ -38,7 +38,7 @@ fetch('guidelines.md') // Ensure the correct relative path here
     .then(response => response.text())
     .then(data => {
         // Convert markdown to HTML using local marked.js
-        const htmlContent = marked(data);
+        const htmlContent = marked.parse(data);
         // Insert the HTML into the div
         document.getElementById('markdown-content').innerHTML = htmlContent;
     })
